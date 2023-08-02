@@ -18,12 +18,13 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 module FA(a, b, ci, sum, co);
-
   input   a, b, ci;
   output  sum, co;
-  
-  // FILL HERE
-
-  
+  reg sum, co;
+  always @ (*)
+  begin
+    sum <= ^{a,  b,  ci};
+    co <= ((a&&b) || (b&&ci) || (a&&ci));
+  end
 
 endmodule

@@ -39,10 +39,12 @@ module Compadder_tb();
         for( ai=0; ai<2**`WIDTH; ai=ai+1 ) begin
             for( bi=0; bi<2**`WIDTH; bi=bi+1 ) begin
 
-                    // FILL HERE :   a=...   b=....  
+                    a = ai[`WIDTH-1:0];
+                    b = bi[`WIDTH-1:0]; 
 		
          		    #5 
-                    // FILL HERE :  correct = ....
+                    correct = correct & (a + b == sum) & (a + b + 1 == tum);
+                    loop_was_skipped = 0;
 					
                     loop_was_skipped = 0;
             end
