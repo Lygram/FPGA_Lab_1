@@ -26,15 +26,24 @@ module Lim_Inc_tb();
     
     integer ai,cii;
     
-    // Instantiate the UUT (Unit Under Test)
+    Lim_Inc limInc(a, ci, sum, co);
     
-	//FILL HERE
+	parameter L = 10;
     
     initial begin
         correct = 1;
         loop_was_skipped = 1;
         #1
-        //FILL HERE
+            for (ai = 0; ai <= L * 2; ai = ai + 1)
+                begin
+                for (cii = 0; cii <= 1; cii = cii + 1)
+                    begin
+                    a = ai;
+                    ci = cii;
+                    #1
+                    correct = correct & (   ((ai + cii)) >= L & (sum == 0) & (co == 1) | (((ai + cii) < L) & (co == 0) & (sum == ai + cii))  );
+                    end
+                end
         #5
         if (correct && ~loop_was_skipped)
             $display("Test Passed - %m");

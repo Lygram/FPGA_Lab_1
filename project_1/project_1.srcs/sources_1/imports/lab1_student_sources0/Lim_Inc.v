@@ -21,13 +21,55 @@
 module Lim_Inc(a, ci, sum, co);
     
     parameter L = 10;
-    localparam N = /* FILL HERE */;
-    
+    localparam N = $clog2(L);
     input [N-1:0] a;
     input ci;
     output [N-1:0] sum;
     output co;
-
-    // FILL HERE
     
+    wire[N-1:0] b;
+    assign b = 0;
+    
+    wire[N:0] sWire;
+    wire[N:0] tWire;
+    
+    reg _c0;
+    reg[N-1:0] _sum;
+    
+    Compadder #(N) cmpadr(a, b, sWire, tWire);
+    
+    always @(*)
+    begin
+        if (ci == 1)
+            begin
+                if (tWire >= L)
+                    begin
+                        _c0 <= 1;
+                        _sum <= 0;
+                    end
+                else //Doesn't oveflow
+                    begin
+                        _c0 <= 0;
+                        _sum <= tWire[N-1:0];
+                    end
+            end
+            
+        else //if (ci == 0)
+            begin
+                if (sWire >= L)
+                    begin  
+                        _c0 <= 1;
+                        _sum <= 0;
+                    end
+                else
+                    begin
+                        _c0 <= 0;
+                        _sum <= sWire[N-1:0];
+                    end
+            end
+        
+    end
+    
+    assign sum = _sum;
+    assign co = _c0;
 endmodule
