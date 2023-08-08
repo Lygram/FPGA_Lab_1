@@ -41,6 +41,14 @@ module Debouncer(clk, input_unstable, output_stable);
             
         // Synchronously generate 1-cycle-pulse upon the transition from 0 mode to 1 mode.
         // TODO
+        if (output_stable == 1)
+            begin
+                output_stable <= 0;
+            end
+        else if (counter[COUNTER_BITS-1] == 1)
+            begin
+                output_stable <= 1;
+            end
      end
        
 endmodule
