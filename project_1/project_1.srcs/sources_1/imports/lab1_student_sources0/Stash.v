@@ -24,7 +24,49 @@ module Stash(clk, reset, sample_in, sample_in_valid, next_sample, sample_out);
    input clk, reset, sample_in_valid, next_sample;
    input [7:0] sample_in;
    output [7:0] sample_out;
+   
+   reg [$clog2(DEPTH)-1:0] nowShowing;
+   reg [$clog2(DEPTH)-1:0] oldestSample;
+   reg [7:0] memory [DEPTH-1:0];
+   wire [$clog2(DEPTH)-1:0] nextShowing;
+   wire showCycleToZero;
+   wire [$clog2(DEPTH)-1:0] nextOldest;
+   wire oldestCycleToZero;
+   reg [$clog2(DEPTH)-1:0] showBus;
+   
+   integer i;
   
-   // FILL HERE
-
+   Lim_Inc #(DEPTH) depthCounter(nowShowing, 1'b1, nextShowing, showCycleToZero);
+   Lim_Inc #(DEPTH) oldestCounter(oldestSample, 1'b1, nextOldest, oldestCycleToZero);
+   
+   always @ (posedge sample_in_valid, next_sample, reset)
+    begin
+        if (reset == 1)
+            begin
+                nowShowing = 0;
+                oldestSample = 0;
+                for (i = 0; i <= DEPTH; i = i + 1)
+                    begin
+                        memory[i] = 8'b0;
+                    end
+            end
+        else 
+            begin
+                if (sample_in_valid == 1)
+                    begin
+                        memory[oldestSample] <= sample_in;
+                        oldestSample <= nextOldest;
+                    end
+                if (next_sample == 1)
+                    begin
+                        nowShowing <= nextShowing;
+                    end
+                if (showCycleToZero == 1)
+                    begin
+                        
+                    end
+            end
+    
+    end
+assign sample_out = memory[nowShowing];
 endmodule
