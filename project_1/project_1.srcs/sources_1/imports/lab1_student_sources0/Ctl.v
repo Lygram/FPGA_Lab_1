@@ -33,12 +33,26 @@ module Ctl(clk, reset, trig, split, init_regs, count_enabled);
      begin
         if (reset)
           state <= IDLE;
-        else
-          // FILL HERE STATE TRANSITIONS
+        else begin //reset=0
+            if (state == IDLE) begin
+                if(trig == 1'b1)
+                    state <= COUNTING;
+            end
+            else if (state == COUNTING) begin
+                if(trig == 1'b1) begin
+                    state <= PAUSED;
+                 end
+            end
+            else begin
+                if(trig == 1'b1) begin
+                    state <= COUNTING;
+                 end else if(split == 1'b1) begin
+                     state <= IDLE;
+                 end
+            end
+        end                             
      end
-     
    //-------------Output Function (Lambda) ----------------
-	 assign init_regs     = // FILL HERE
-	 assign count_enabled = // FILL HERE
-
+	 assign init_regs     = (state == IDLE) ? 1 : 0;
+	 assign count_enabled = (state == COUNTING) ? 1 : 0;
 endmodule

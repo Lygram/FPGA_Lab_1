@@ -23,6 +23,7 @@ module Ctl_tb();
     //integer ai,cii;
     
     // Instantiate the UUT (Unit Under Test)
+    Ctl uut(clk, reset, trig, split, init_regs, count_enabled); 
     // FILL HERE
     
     initial begin
@@ -31,14 +32,67 @@ module Ctl_tb();
         reset = 1; 
         trig = 0;
         split = 0;
+        loop_was_skipped = 0;
         #10
         reset = 0; 
         correct = correct & init_regs & ~count_enabled;
         #20
+        #2
+        trig = 0;
         // FILL HERE - TEST VARIOUS STATE TRANSITION 
 		// AND COMPARE AGAINST EXPECTED OUTPUT SIGNALS
-        #10        
-        
+		 #5 
+        correct = correct & init_regs & ~count_enabled ;
+        // IDLE -> IDLE
+        #5 
+        trig = 1; 
+        #5 
+        correct = correct & ~init_regs & count_enabled ;
+        // IDLE -> COUNTING
+        #5 
+        trig = 0;
+        #5 
+        correct = correct & ~init_regs & count_enabled;
+        //  COUNTING -> COUNTING
+        #5 
+        trig = 1; 
+        #5 
+        correct = correct & ~init_regs & ~count_enabled;
+        //  COUNTING -> PAUSED
+        #5 
+        trig = 0; 
+        split = 0;  
+        #5 
+        correct = correct & ~init_regs & ~count_enabled;
+        // PAUSED -> PAUSED
+        #5 
+        trig = 1;
+        #5
+        correct = correct & ~init_regs & count_enabled;
+        // PAUSED -> COUNTING
+        #5 
+        reset=1; 
+        #5 
+        correct = correct & init_regs & ~count_enabled;
+        // COUNTING -> IDLE
+        #5
+        reset = 0;
+        trig = 1;
+        #5     
+        correct = correct & ~init_regs & count_enabled ;
+        // IDLE -> COUNTING
+        #5 
+        trig = 1; 
+        #5 
+        correct = correct & ~init_regs & ~count_enabled;
+        //  COUNTING -> PAUSED
+        #5 
+        split = 1;
+        trig  = 0;
+        #5
+        correct = correct & init_regs & ~count_enabled;
+        // PAUSED -> IDLE
+        #5       
           
         if (correct)
             $display("Test Passed - %m");
