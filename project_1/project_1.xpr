@@ -73,6 +73,42 @@
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
       <Filter Type="Srcs"/>
+      <File Path="$PSRCDIR/sources_1/imports/lab1_student_sources0/Compadder.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/lab1_student_sources0/Compadder.v"/>
+          <Attr Name="ImportTime" Val="1690968078"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/lab1_student_sources0/Counter.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/lab1_student_sources0/Counter.v"/>
+          <Attr Name="ImportTime" Val="1690968078"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/lab1_student_sources0/Ctl.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/lab1_student_sources0/Ctl.v"/>
+          <Attr Name="ImportTime" Val="1690968078"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/lab1_student_sources0/Debouncer.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/lab1_student_sources0/Debouncer.v"/>
+          <Attr Name="ImportTime" Val="1690968078"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/imports/lab1_student_sources0/FA.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/lab1_student_sources0/FA.v"/>
@@ -82,19 +118,46 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/lab1_student_sources0/FA_tb.v">
+      <File Path="$PSRCDIR/sources_1/imports/lab1_student_sources0/Lim_Inc.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/lab1_student_sources0/FA_tb.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/lab1_student_sources0/Lim_Inc.v"/>
           <Attr Name="ImportTime" Val="1690968078"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/lab1_student_sources0/Compadder.v">
+      <File Path="$PSRCDIR/sources_1/imports/lab1_student_sources0/Seg_7_Display.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/lab1_student_sources0/Seg_7_Display.v"/>
+          <Attr Name="ImportTime" Val="1690968079"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/lab1_student_sources0/Stash.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/lab1_student_sources0/Stash.v"/>
+          <Attr Name="ImportTime" Val="1690968079"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/lab1_student_sources0/Stopwatch.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/lab1_student_sources0/Stopwatch.v"/>
+          <Attr Name="ImportTime" Val="1690968079"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/lab1_student_sources0/FA_tb.v">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/lab1_student_sources0/Compadder.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/lab1_student_sources0/FA_tb.v"/>
           <Attr Name="ImportTime" Val="1690968078"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -105,16 +168,6 @@
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/lab1_student_sources0/Compadder_tb.v"/>
-          <Attr Name="ImportTime" Val="1690968078"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/lab1_student_sources0/Counter.v">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/lab1_student_sources0/Counter.v"/>
           <Attr Name="ImportTime" Val="1690968078"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -141,50 +194,10 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/lab1_student_sources0/Debouncer.v">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/lab1_student_sources0/Debouncer.v"/>
-          <Attr Name="ImportTime" Val="1690968078"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/lab1_student_sources0/Lim_Inc.v">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/lab1_student_sources0/Lim_Inc.v"/>
-          <Attr Name="ImportTime" Val="1690968078"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <File Path="$PSRCDIR/sources_1/imports/lab1_student_sources0/Lim_Inc_tb.v">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/lab1_student_sources0/Lim_Inc_tb.v"/>
-          <Attr Name="ImportTime" Val="1690968079"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/lab1_student_sources0/Seg_7_Display.v">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/lab1_student_sources0/Seg_7_Display.v"/>
-          <Attr Name="ImportTime" Val="1690968079"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/lab1_student_sources0/Stash.v">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/lab1_student_sources0/Stash.v"/>
           <Attr Name="ImportTime" Val="1690968079"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -201,29 +214,9 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/lab1_student_sources0/Stopwatch.v">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/lab1_student_sources0/Stopwatch.v"/>
-          <Attr Name="ImportTime" Val="1690968079"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/lab1_student_sources0/Ctl.v">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/lab1_student_sources0/Ctl.v"/>
-          <Attr Name="ImportTime" Val="1690968078"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="FA_tb"/>
+        <Option Name="TopModule" Val="Stopwatch"/>
       </Config>
     </FileSet>
     <FileSet Name="constrs_1" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1" RelGenDir="$PGENDIR/constrs_1">
