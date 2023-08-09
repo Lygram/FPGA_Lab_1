@@ -51,13 +51,13 @@ module Stopwatch(clk, btnC, btnU, btnR, btnL, btnD, seg, an, dp, led_left, led_r
 	Counter counter(clk, reset, count_enabled_right, time_reading[7:0]);
 	
 	//Stash
-	Stash stash(clk, reset, time_reading[7:0], sample, next_sample_left & ~selected_stopwatch, time_reading[15:8]);
+	Stash stash(clk, reset, time_reading[7:0], sample, trig & ~selected_stopwatch, time_reading[15:8]);
 	
 	//7Seg
 	Seg_7_Display(time_reading, clk, reset, seg, an, dp);
 	
 	//Control
-	Ctl control(clk, reset, trig & stopwatch_select, split, init_regs, count_enabled_right);
+	Ctl control(clk, reset, trig & selected_stopwatch, split, init_regs, count_enabled_right);
 	
 	//LEDs
     assign led_left = ~selected_stopwatch? 3'b111 : 3'b000;

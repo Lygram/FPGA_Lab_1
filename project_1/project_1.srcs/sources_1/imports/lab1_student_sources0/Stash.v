@@ -32,7 +32,7 @@ module Stash(clk, reset, sample_in, sample_in_valid, next_sample, sample_out);
    wire showCycleToZero;
    wire [$clog2(DEPTH)-1:0] nextOldest;
    wire oldestCycleToZero;
-   reg [$clog2(DEPTH)-1:0] showBus;
+
    
    integer i;
   
@@ -63,10 +63,16 @@ module Stash(clk, reset, sample_in, sample_in_valid, next_sample, sample_out);
                     end
                 if (showCycleToZero == 1)
                     begin
-                        
+                        nowShowing <= 0;
                     end
+                if (oldestCycleToZero == 1)
+                    begin
+                        oldestSample <= 0;
+                    end
+
             end
     
     end
+            
 assign sample_out = memory[nowShowing];
 endmodule
