@@ -26,6 +26,7 @@ module Debouncer(clk, input_unstable, output_stable);
 
    input clk, input_unstable;
    output reg output_stable;
+   reg reset = 1;
    
    parameter COUNTER_BITS = 7;
    
@@ -34,20 +35,27 @@ module Debouncer(clk, input_unstable, output_stable);
    always @(posedge clk)
      begin
 
-        if (input_unstable == 1)
-            counter <= (counter < {COUNTER_BITS{1'b1}}) ? counter  + 1 : counter;
+        if (input_unstable == 1 & reset == 1)
+            begin
+                counter <= (counter < {COUNTER_BITS{1'b1}}) ? counter  + 1 : counter;
+                if (counter[COUNTER_BITS-1] == 1)
+                    begin
+                        output_stable <= 1;
+                        reset = 0;
+                    end
+             end
         else
             counter <= (counter > {COUNTER_BITS{1'b0}}) ? counter  - 1 : counter;
             
         // Synchronously generate 1-cycle-pulse upon the transition from 0 mode to 1 mode.
         // TODO
-        if (output_stable == 1)
+        if (output_stable ==  1)
             begin
                 output_stable <= 0;
-            end
-        else if (counter[COUNTER_BITS-1] == 1)
+            end 
+        else if (input_unstable == 0)
             begin
-                output_stable <= 1;
+                reset = 1;
             end
      end
        

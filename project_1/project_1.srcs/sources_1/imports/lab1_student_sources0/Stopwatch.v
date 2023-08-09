@@ -32,10 +32,11 @@ module Stopwatch(clk, btnC, btnU, btnR, btnL, btnD, seg, an, dp, led_left, led_r
     output  wire       dp; 
     output  wire [2:0] led_left;
     output  wire [2:0] led_right;
-
+    
+    reg [15:0] time_save;
     wire [15:0] time_reading;
     wire trig, split, reset, toggle, sample;
-    wire trig_right, split_right, init_regs_right, count_enabled_right;
+    wire trig_right, split_right, count_enabled_right;
     wire valid_sample_left, next_sample_left, init_regs;
     reg selected_stopwatch = 1;
     
@@ -47,21 +48,32 @@ module Stopwatch(clk, btnC, btnU, btnR, btnL, btnD, seg, an, dp, led_left, led_r
 	Debouncer debD(clk, btnD, sample);
 	
 	//Counter
-	Counter counter(clk, reset | init_regs, count_enabled_right & selected_stopwatch, time_reading[7:0]);
+	Counter counter(clk, reset, count_enabled_right, time_reading[7:0]);
 	
 	//Stash
-	Stash stash(clk, reset | init_regs, time_reading[7:0], valid_sample_left, next_sample_left & ~selected_stopwatch, time_reading[15:8]);
+	Stash stash(clk, reset, time_reading[7:0], sample, next_sample_left & ~selected_stopwatch, time_reading[15:8]);
 	
 	//7Seg
 	Seg_7_Display(time_reading, clk, reset, seg, an, dp);
 	
 	//Control
-	Ctl control(clk, reset, trig, split, init_regs, count_enabled_right);
+	Ctl control(clk, reset, trig & stopwatch_select, split, init_regs, count_enabled_right);
+	
+	//LEDs
+    assign led_left = ~selected_stopwatch? 3'b111 : 3'b000;
+    //Stash
+    assign led_right = selected_stopwatch? 3'b111 : 3'b000;
 	
 	//Selector
 	always @(posedge toggle)
 	begin
 	   selected_stopwatch = selected_stopwatch + 1;
 	end
+	
+	always @(posedge clk)
+	begin
+	   time_save[15:0] <= time_reading[15:0];
+	end
+	
 
 endmodule

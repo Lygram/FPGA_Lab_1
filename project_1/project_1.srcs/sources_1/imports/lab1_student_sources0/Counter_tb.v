@@ -26,7 +26,7 @@ module Counter_tb();
     wire [3:0] ones_seconds_wire;
     integer ts,os,sync;
     
-    Counter #(10000000) uut(clk, init_regs, count_enabled, time_reading);
+    Counter #(100000) uut(clk, init_regs, count_enabled, time_reading);
 
     assign tens_seconds_wire = time_reading[7:4];
     assign ones_seconds_wire = time_reading[3:0];

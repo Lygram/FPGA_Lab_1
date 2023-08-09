@@ -39,7 +39,7 @@ module Stash(clk, reset, sample_in, sample_in_valid, next_sample, sample_out);
    Lim_Inc #(DEPTH) depthCounter(nowShowing, 1'b1, nextShowing, showCycleToZero);
    Lim_Inc #(DEPTH) oldestCounter(oldestSample, 1'b1, nextOldest, oldestCycleToZero);
    
-   always @ (posedge sample_in_valid, next_sample, reset)
+   always @ (posedge sample_in_valid or posedge next_sample or posedge reset)
     begin
         if (reset == 1)
             begin
